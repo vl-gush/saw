@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'users',
 ]
 
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'saw.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,6 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "users.User"
 
 AUTHENTICATION_BACKENDS = (
-   "saw.users.backends.EmailAuthBackend",
+   "users.backends.EmailAuthBackend",
    "django.contrib.auth.backends.ModelBackend",
 )
