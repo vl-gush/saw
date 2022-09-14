@@ -1,6 +1,6 @@
 import logging
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
@@ -38,3 +38,8 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, "login.html", {"form": form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("index")
